@@ -1,0 +1,134 @@
+.appointments-page { display: flex; flex-direction: column; gap: 20px; }
+
+.apts-layout { display: grid; grid-template-columns: 340px 1fr; gap: 20px; align-items: start; }
+
+.apt-left { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 80px; }
+
+/* Full calendar */
+.cal-card { padding: 20px; }
+.cal-header-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px;
+}
+.cal-nav-btn {
+  width: 30px; height: 30px; border-radius: 7px;
+  border: 1px solid var(--gray-200); background: var(--white);
+  cursor: pointer; font-size: 18px; color: var(--gray-600);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); transition: all 0.12s;
+}
+.cal-nav-btn:hover { background: var(--gray-100); }
+.cal-month-title { font-size: 15px; font-weight: 600; color: var(--navy); }
+
+.full-cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px;
+}
+.fcal-day-name {
+  text-align: center; font-size: 11px; font-weight: 600;
+  color: var(--gray-400); padding: 6px 0;
+}
+.fcal-day {
+  text-align: center; padding: 8px 4px; border-radius: 7px;
+  border: none; background: transparent; cursor: pointer;
+  font-size: 13px; color: var(--gray-700); font-family: var(--font-body);
+  transition: all 0.12s; position: relative;
+}
+.fcal-day:hover { background: var(--gray-100); }
+.fcal-day.today { background: #e8f0fb; color: var(--blue); font-weight: 700; }
+.fcal-day.selected { background: var(--navy); color: var(--white); font-weight: 700; }
+.fcal-day.has-apt::after {
+  content: ''; position: absolute; bottom: 3px; left: 50%;
+  transform: translateX(-50%); width: 4px; height: 4px;
+  border-radius: 50%; background: var(--gold);
+}
+.fcal-day.selected::after { background: var(--white); }
+
+/* Book card */
+.book-card { padding: 20px; }
+.book-title { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 16px; }
+
+.slots-label { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+.slots-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.slot-pill {
+  padding: 7px 6px; border-radius: 7px; font-size: 11px; font-weight: 500;
+  border: 1px solid var(--gray-200); background: var(--white);
+  cursor: pointer; font-family: var(--font-body); text-align: center;
+  color: var(--gray-700); transition: all 0.12s;
+}
+.slot-pill:hover:not(.booked) { border-color: var(--navy); background: #e8f0fb; color: var(--navy); }
+.slot-pill.selected { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.slot-pill.booked { opacity: 0.35; cursor: not-allowed; text-decoration: line-through; }
+
+.book-submit { width: 100%; justify-content: center; padding: 12px; font-size: 13px; }
+.book-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.book-success {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--green-bg); border-radius: 10px;
+  padding: 14px; color: var(--green); font-size: 14px; font-weight: 500;
+}
+.book-success span { font-size: 22px; }
+
+/* Right: list */
+.apt-right { display: flex; flex-direction: column; gap: 16px; }
+
+.apt-list-header { display: flex; align-items: center; justify-content: space-between; }
+.apt-list-title { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--navy); }
+
+.apt-filter-tabs { display: flex; gap: 0; border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; }
+.filter-tab {
+  padding: 7px 16px; font-size: 13px; border: none; background: var(--white);
+  color: var(--gray-500); cursor: pointer; font-family: var(--font-body); transition: all 0.12s;
+}
+.filter-tab.active { background: var(--navy); color: var(--white); font-weight: 500; }
+
+.apt-cards { display: flex; flex-direction: column; gap: 10px; }
+
+.apt-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-100); padding: 16px 18px;
+  display: grid; grid-template-columns: 90px 1fr auto;
+  gap: 16px; align-items: center; box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--navy);
+  transition: box-shadow 0.15s;
+}
+.apt-card:hover { box-shadow: var(--shadow-md); }
+.apt-card.pending { border-left-color: var(--gold); }
+
+.apt-card-left { text-align: center; }
+.apt-card-date { font-size: 12px; color: var(--gray-500); margin-bottom: 2px; }
+.apt-card-time { font-size: 16px; font-weight: 700; color: var(--navy); }
+
+.apt-card-prop { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+.apt-card-addr { font-size: 12px; color: var(--gray-500); margin-bottom: 4px; }
+.apt-card-person { font-size: 12px; color: var(--gray-600); }
+.apt-note { color: var(--gray-400); }
+
+.apt-card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.apt-actions { display: flex; gap: 8px; }
+
+.link-btn-sm {
+  font-size: 11px; font-weight: 500; color: var(--navy);
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font-body); transition: opacity 0.12s;
+}
+.link-btn-sm:hover { opacity: 0.7; }
+.link-btn-sm.danger { color: var(--red); }
+
+/* Summary */
+.apt-summary {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+}
+.apt-sum-card {
+  background: var(--white); border-radius: var(--radius-md);
+  border: 1px solid var(--gray-100); padding: 16px;
+  text-align: center; box-shadow: var(--shadow-sm);
+}
+.apt-sum-val { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--navy); }
+.apt-sum-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; }
+
+@media (max-width: 960px) {
+  .apts-layout { grid-template-columns: 1fr; }
+  .apt-left { position: static; }
+  .apt-summary { grid-template-columns: repeat(2, 1fr); }
+}
