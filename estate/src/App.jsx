@@ -14,6 +14,8 @@ import AppointmentsPage from './pages/AppointmentsPage'
 
 function Layout({ children }) {
 
+
+  
   return (
     <div className="app-layout">
       <Sidebar />
