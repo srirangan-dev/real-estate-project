@@ -3,6 +3,8 @@ import { USERS } from '../data/mockData'
 
 const AuthContext = createContext(null)
 
+
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(USERS[0]) // Default: agent James
 
